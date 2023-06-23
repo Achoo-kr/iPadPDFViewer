@@ -44,7 +44,7 @@ extension DependencyValues {
 extension ApiClient {
     static let live = Self(
         fetchBookmarks: { pdfId in
-            let url = URL(string: "https://asia-northeast3-dev-giyoung.cloudfunctions.net/petitPDFViewer-getBookmarks?userId=no3yd1f0pd&pdfId=\(pdfId)")!
+            let url = URL(string: "")!
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -61,7 +61,7 @@ extension ApiClient {
                 .eraseToAnyPublisher()
         },
         addBookmark: { pdfId, page in
-            let url = URL(string: "https://asia-northeast3-dev-giyoung.cloudfunctions.net/petitPDFViewer-createBookmark")!
+            let url = URL(string: "")!
             let body: [String : Any] = ["userId": "no3yd1f0pd", "pdfId": pdfId, "page": page]
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
@@ -78,7 +78,7 @@ extension ApiClient {
                 .eraseToAnyPublisher()
         },
         removeBookmark: { bookmarkId in
-            let url = URL(string: "https://asia-northeast3-dev-giyoung.cloudfunctions.net/petitPDFViewer-deleteBookmark")!
+            let url = URL(string: "")!
             let body = ["bookmarkId": bookmarkId]
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
